@@ -105,7 +105,7 @@ public:
 
   /** Type of the point use for determing the location in the fixed image of a
    * block's center. */
-  using CoordRepType = typename itk::Point<TCoordRep, ImageDimension>;
+  using CoordinateType = typename itk::Point<TCoordRep, ImageDimension>;
 
   /** Type of the MetricImageFilter. */
   using MetricImageFilterType = MetricImageFilter<FixedImageType, MovingImageType, MetricImageType>;
