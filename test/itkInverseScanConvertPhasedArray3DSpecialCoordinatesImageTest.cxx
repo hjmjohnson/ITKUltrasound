@@ -40,7 +40,7 @@ itkInverseScanConvertPhasedArray3DSpecialCoordinatesImageTest(int argc, char * a
   using RealImageType = itk::Image<RealPixelType, Dimension>;
   using InputImageType = itk::Image<PixelType, Dimension>;
   using OutputImageType = itk::PhasedArray3DSpecialCoordinatesImage<PixelType>;
-  using CoordRepType = double;
+  using CoordinateType = double;
 
 
   using SourceType = itk::GaborImageSource<RealImageType>;

@@ -47,7 +47,7 @@ itkBlockMatchingBayesianRegularizationDisplacementCalculatorTest(int argc, char 
   using VectorType = itk::Vector<MetricPixelType, Dimension>;
   using DisplacementImageType = itk::Image<VectorType, Dimension>;
 
-  using CoordRepType = double;
+  using CoordinateType = double;
 
   // Input file readers.
   using ReaderType = itk::ImageFileReader<InputImageType>;
@@ -74,7 +74,7 @@ itkBlockMatchingBayesianRegularizationDisplacementCalculatorTest(int argc, char 
 
   // The image registration method.
   using RegistrationMethodType = itk::BlockMatching::
-    ImageRegistrationMethod<InputImageType, InputImageType, MetricImageType, DisplacementImageType, CoordRepType>;
+    ImageRegistrationMethod<InputImageType, InputImageType, MetricImageType, DisplacementImageType, CoordinateType>;
   RegistrationMethodType::Pointer registrationMethod = RegistrationMethodType::New();
   registrationMethod->SetFixedImage(fixedReader->GetOutput());
   registrationMethod->SetMovingImage(movingReader->GetOutput());

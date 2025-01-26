@@ -45,7 +45,7 @@ itkBlockMatchingImageRegistrationMethodTest(int argc, char * argv[])
   using VectorType = itk::Vector<MetricPixelType, Dimension>;
   using DisplacementImageType = itk::Image<VectorType, Dimension>;
 
-  using CoordRepType = double;
+  using CoordinateType = double;
 
   using ReaderType = itk::ImageFileReader<InputImageType>;
   ReaderType::Pointer fixedReader = ReaderType::New();
@@ -67,7 +67,7 @@ itkBlockMatchingImageRegistrationMethodTest(int argc, char * argv[])
   searchRegions->SetSearchRegionRadius(searchRadius);
 
   using RegistrationMethodType = itk::BlockMatching::
-    ImageRegistrationMethod<InputImageType, InputImageType, MetricImageType, DisplacementImageType, CoordRepType>;
+    ImageRegistrationMethod<InputImageType, InputImageType, MetricImageType, DisplacementImageType, CoordinateType>;
   RegistrationMethodType::Pointer registrationMethod = RegistrationMethodType::New();
   registrationMethod->SetFixedImage(fixedReader->GetOutput());
   registrationMethod->SetMovingImage(movingReader->GetOutput());

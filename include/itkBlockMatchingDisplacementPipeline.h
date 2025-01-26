@@ -100,10 +100,10 @@ public:
   /** Method for creation through the object factory. */
   itkNewMacro(Self);
 
-  using CoordRepType = TCoordRep;
+  using CoordinateType = TCoordRep;
 
-  using FixedResamplerType = ResampleImageFilter<FixedImageType, FixedImageType, CoordRepType>;
-  using MovingResamplerType = ResampleImageFilter<MovingImageType, MovingImageType, CoordRepType>;
+  using FixedResamplerType = ResampleImageFilter<FixedImageType, FixedImageType, CoordinateType>;
+  using MovingResamplerType = ResampleImageFilter<MovingImageType, MovingImageType, CoordinateType>;
 
   const static unsigned int RESAMPLE_RADIUS = 4;
   using ResampleWindowType = Function::WelchWindowFunction<RESAMPLE_RADIUS>;
@@ -112,13 +112,13 @@ public:
                                                                               RESAMPLE_RADIUS,
                                                                               ResampleWindowType,
                                                                               FixedBoundaryConditionType,
-                                                                              CoordRepType>;
+                                                                              CoordinateType>;
   using MovingBoundaryConditionType = ZeroFluxNeumannBoundaryCondition<MovingImageType>;
   using MovingResamplerInterpolatorType = WindowedSincInterpolateImageFunction<MovingImageType,
                                                                                RESAMPLE_RADIUS,
                                                                                ResampleWindowType,
                                                                                MovingBoundaryConditionType,
-                                                                               CoordRepType>;
+                                                                               CoordinateType>;
 
   /** The block radius calculator. */
   using BlockRadiusCalculatorType = BlockMatching::MultiResolutionMinMaxBlockRadiusCalculator<FixedImageType>;
@@ -129,7 +129,7 @@ public:
 
   /** The registration method. */
   using LevelRegistrationMethodType = BlockMatching::
-    ImageRegistrationMethod<FixedImageType, MovingImageType, MetricImageType, DisplacementImageType, CoordRepType>;
+    ImageRegistrationMethod<FixedImageType, MovingImageType, MetricImageType, DisplacementImageType, CoordinateType>;
 
   /** Interpolation classes. */
   using ParabolicInterpolatorType =
@@ -145,7 +145,7 @@ public:
                                                                          OPTIMIZING_INTERPOLATOR_RADIUS,
                                                                          WindowType,
                                                                          ResampleBoundaryConditionType,
-                                                                         CoordRepType>;
+                                                                         CoordinateType>;
   using SubsampleOptimizerType = AmoebaOptimizer;
 
   /** Filter out peak hopping. */
@@ -178,7 +178,7 @@ public:
                                                                                        MovingImageType,
                                                                                        MetricImageType,
                                                                                        DisplacementImageType,
-                                                                                       CoordRepType>;
+                                                                                       CoordinateType>;
 
   /** Set the displacement calculator and regularizer iterations at every level. */
   using DisplacementCalculatorCommandType =

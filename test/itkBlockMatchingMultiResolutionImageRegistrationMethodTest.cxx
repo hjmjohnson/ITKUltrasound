@@ -47,7 +47,7 @@ itkBlockMatchingMultiResolutionImageRegistrationMethodTest(int argc, char * argv
   using VectorType = itk::Vector<MetricPixelType, Dimension>;
   using DisplacementImageType = itk::Image<VectorType, Dimension>;
 
-  using CoordRepType = double;
+  using CoordinateType = double;
 
   using ReaderType = itk::ImageFileReader<InputImageType>;
   ReaderType::Pointer fixedReader = ReaderType::New();
@@ -85,7 +85,7 @@ itkBlockMatchingMultiResolutionImageRegistrationMethodTest(int argc, char * argv
   MetricImageFilterType::Pointer metricImageFilter = MetricImageFilterType::New();
 
   using LevelRegistrationMethodType = itk::BlockMatching::
-    ImageRegistrationMethod<InputImageType, InputImageType, MetricImageType, DisplacementImageType, CoordRepType>;
+    ImageRegistrationMethod<InputImageType, InputImageType, MetricImageType, DisplacementImageType, CoordinateType>;
   LevelRegistrationMethodType::Pointer levelRegistrationMethod = LevelRegistrationMethodType::New();
   levelRegistrationMethod->SetMetricImageFilter(metricImageFilter);
 
@@ -93,7 +93,7 @@ itkBlockMatchingMultiResolutionImageRegistrationMethodTest(int argc, char * argv
                                                                                             InputImageType,
                                                                                             MetricImageType,
                                                                                             DisplacementImageType,
-                                                                                            CoordRepType>;
+                                                                                            CoordinateType>;
   RegistrationMethodType::Pointer multiResRegistrationMethod = RegistrationMethodType::New();
   multiResRegistrationMethod->SetFixedImage(fixedReader->GetOutput());
   multiResRegistrationMethod->SetMovingImage(movingReader->GetOutput());
