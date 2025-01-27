@@ -40,14 +40,18 @@ CurvilinearFFTImageFilterInitFactory::RegisterFactories()
   itk::ObjectFactoryBase::RegisterFactory(FFTImageFilterFactory<VnlComplexToComplex1DFFTImageFilter,
                                                                 itk::CurvilinearArraySpecialCoordinatesImage,
                                                                 itk::CurvilinearArraySpecialCoordinatesImage>::New());
-  itk::ObjectFactoryBase::RegisterFactory(
-    FFTImageFilterFactory<VnlForward1DFFTImageFilter, itk::CurvilinearArraySpecialCoordinatesImage, itk::CurvilinearArraySpecialCoordinatesImage>::New());
-  itk::ObjectFactoryBase::RegisterFactory(
-    FFTImageFilterFactory<VnlInverse1DFFTImageFilter, itk::CurvilinearArraySpecialCoordinatesImage, itk::CurvilinearArraySpecialCoordinatesImage>::New());
+  itk::ObjectFactoryBase::RegisterFactory(FFTImageFilterFactory<VnlForward1DFFTImageFilter,
+                                                                itk::CurvilinearArraySpecialCoordinatesImage,
+                                                                itk::CurvilinearArraySpecialCoordinatesImage>::New());
+  itk::ObjectFactoryBase::RegisterFactory(FFTImageFilterFactory<VnlInverse1DFFTImageFilter,
+                                                                itk::CurvilinearArraySpecialCoordinatesImage,
+                                                                itk::CurvilinearArraySpecialCoordinatesImage>::New());
   // Curvilinear -> Image
-  itk::ObjectFactoryBase::RegisterFactory(FFTImageFilterFactory<VnlForward1DFFTImageFilter, itk::CurvilinearArraySpecialCoordinatesImage, itk::Image>::New());
+  itk::ObjectFactoryBase::RegisterFactory(
+    FFTImageFilterFactory<VnlForward1DFFTImageFilter, itk::CurvilinearArraySpecialCoordinatesImage, itk::Image>::New());
   // Image -> Curvilinear
-  itk::ObjectFactoryBase::RegisterFactory(FFTImageFilterFactory<VnlInverse1DFFTImageFilter, itk::Image, itk::CurvilinearArraySpecialCoordinatesImage>::New());
+  itk::ObjectFactoryBase::RegisterFactory(
+    FFTImageFilterFactory<VnlInverse1DFFTImageFilter, itk::Image, itk::CurvilinearArraySpecialCoordinatesImage>::New());
 }
 
 // Undocumented API used to register during static initialization.

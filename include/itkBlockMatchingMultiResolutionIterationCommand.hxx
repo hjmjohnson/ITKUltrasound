@@ -26,7 +26,8 @@ namespace BlockMatching
 
 template <typename TMultiResolutionMethod>
 void
-MultiResolutionIterationCommand<TMultiResolutionMethod>::Execute(const Object * itkNotUsed(object), const EventObject & event)
+MultiResolutionIterationCommand<TMultiResolutionMethod>::Execute(const Object *      itkNotUsed(object),
+                                                                 const EventObject & event)
 {
   if (!(IterationEvent().CheckEvent(&event)))
   {

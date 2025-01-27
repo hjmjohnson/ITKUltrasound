@@ -50,11 +50,11 @@ GetType()
   itkGenericExceptionMacro(<< "Type not handled "
                            << "in HDF5 File: " << typeid(TScalar).name());
 }
-#define GetH5TypeSpecialize(CXXType, H5Type)                                                                           \
-  template <>                                                                                                          \
-  H5::PredType GetType<CXXType>()                                                                                      \
-  {                                                                                                                    \
-    return H5Type;                                                                                                     \
+#define GetH5TypeSpecialize(CXXType, H5Type) \
+  template <>                                \
+  H5::PredType GetType<CXXType>()            \
+  {                                          \
+    return H5Type;                           \
   }
 
 GetH5TypeSpecialize(float, H5::PredType::NATIVE_FLOAT) GetH5TypeSpecialize(double, H5::PredType::NATIVE_DOUBLE)

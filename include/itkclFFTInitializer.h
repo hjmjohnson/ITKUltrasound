@@ -31,15 +31,12 @@ public:
   clfftSetupData m_clFFTdefaults;
 
   clFFTInitializer();
-  ~clFFTInitializer() override
-  {
-    clfftTeardown();
-  }
+  ~clFFTInitializer() override { clfftTeardown(); }
 };
 
 // make sure clFFT has been initialized
 Ultrasound_EXPORT clFFTInitializer &
-                  clFFFInitialization();
+clFFFInitialization();
 
 } // namespace itk
 #endif // itkclFFTInitializer_h

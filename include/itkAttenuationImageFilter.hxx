@@ -44,9 +44,8 @@ AttenuationImageFilter<TInputImage, TOutputImage, TMaskImage>::AttenuationImageF
 
 template <typename TInputImage, typename TOutputImage, typename TMaskImage>
 auto
-AttenuationImageFilter<TInputImage, TOutputImage, TMaskImage>::MakeOutput(
-  DataObjectPointerArraySizeType idx)
-  ->DataObjectPointer
+AttenuationImageFilter<TInputImage, TOutputImage, TMaskImage>::MakeOutput(DataObjectPointerArraySizeType idx)
+  -> DataObjectPointer
 {
   if (idx == 1)
   {
@@ -314,7 +313,7 @@ AttenuationImageFilter<TInputImage, TOutputImage, TMaskImage>::ThreadedGenerateD
             itkExceptionMacro(<< "Invalid computation mode: " << m_ComputationMode);
           }
         } // if start<end
-      }   // else !inside
+      } // else !inside
 
       ++it;
     }

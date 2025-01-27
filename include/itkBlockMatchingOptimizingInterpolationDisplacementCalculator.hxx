@@ -92,7 +92,7 @@ OptimizingInterpolationDisplacementCalculator<TMetricImage, TDisplacementImage, 
     for (unsigned int i = 0; i < ImageDimension; i++)
       parameters[i] += 0.1;
     m_CostFunction->Initialize(parameters);
-    const_cast<InterpolatorType*>(m_CostFunction->GetInterpolator())->SetInputImage(metricImage);
+    const_cast<InterpolatorType *>(m_CostFunction->GetInterpolator())->SetInputImage(metricImage);
     m_Optimizer->StartOptimization();
 
     parameters = m_Optimizer->GetCurrentPosition();
@@ -150,7 +150,7 @@ OptimizingInterpolationDisplacementCalculator<TMetricImage, TDisplacementImage, 
   centerValue = -1 * m_Interpolator->EvaluateAtContinuousIndex(m_ContinuousIndex);
   for (unsigned int i = 0; i < ImageDimension; ++i)
   {
-    const static double acceptibleValue = 100 * NumericTraits<double>::epsilon();
+    static const double acceptibleValue = 100 * NumericTraits<double>::epsilon();
     delta = parameters[i] - m_PreviousParameters[i];
     if (std::abs(delta) > acceptibleValue)
     {
