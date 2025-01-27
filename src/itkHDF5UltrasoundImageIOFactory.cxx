@@ -60,7 +60,7 @@ HDF5UltrasoundImageIOFactory ::PrintSelf(std::ostream &, Indent) const
 static bool HDF5UltrasoundImageIOFactoryHasBeenRegistered;
 
 void Ultrasound_EXPORT
-     HDF5UltrasoundImageIOFactoryRegister__Private()
+HDF5UltrasoundImageIOFactoryRegister__Private()
 {
   if (!HDF5UltrasoundImageIOFactoryHasBeenRegistered)
   {
