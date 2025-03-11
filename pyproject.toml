@@ -4,7 +4,7 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "itk-ultrasound"
-version = "0.7.0"
+version = "0.7.1"
 description = "Filters for use with the Insight Toolkit (ITK) that may be particularly useful for the reconstruction and analysis of ultrasound images."
 readme = "README.rst"
 license = {file = "LICENSE"}
@@ -12,7 +12,7 @@ authors = [
     { name = "Matthew McCormick", email = "matt.mccormick@kitware.com" },
 ]
 keywords = [
-    "ITK",
+    "itk",
     "InsightToolkit",
     "ultrasound",
     "imaging",
@@ -36,7 +36,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Medical Science Apps.",
     "Topic :: Software Development :: Libraries",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
     "itk == 5.4.*",
     "itk-meshtopolydata>=0.10.0",
