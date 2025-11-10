@@ -65,8 +65,7 @@ public:
 
 
 protected:
-
-    ButterworthBandpass1DFilterFunction()
+  ButterworthBandpass1DFilterFunction()
   {
     m_Order = 1;
     m_LowerFrequency = 0.0;

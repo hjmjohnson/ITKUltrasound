@@ -92,7 +92,7 @@ operator+(const VariableLengthVector<TScalarA> & a, const Vector<TScalarB, VDime
 }
 
 template <typename TScalarA, typename TScalarB, unsigned VDimension>
-Vector<TScalarA, VDimension>&
+Vector<TScalarA, VDimension> &
 operator+=(Vector<TScalarA, VDimension> & a, const VariableLengthVector<TScalarB> & b)
 {
   for (unsigned i = 0; i < VDimension; ++i)
@@ -103,7 +103,7 @@ operator+=(Vector<TScalarA, VDimension> & a, const VariableLengthVector<TScalarB
 }
 
 template <typename TScalarA, typename TScalarB, unsigned VDimension>
-VariableLengthVector<TScalarA>&
+VariableLengthVector<TScalarA> &
 operator+=(VariableLengthVector<TScalarA> & a, const Vector<TScalarB, VDimension> & b)
 {
   for (unsigned i = 0; i < VDimension; ++i)
