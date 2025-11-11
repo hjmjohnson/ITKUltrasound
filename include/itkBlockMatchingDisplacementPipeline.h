@@ -105,7 +105,7 @@ public:
   using FixedResamplerType = ResampleImageFilter<FixedImageType, FixedImageType, CoordRepType>;
   using MovingResamplerType = ResampleImageFilter<MovingImageType, MovingImageType, CoordRepType>;
 
-  const static unsigned int RESAMPLE_RADIUS = 4;
+  static const unsigned int RESAMPLE_RADIUS = 4;
   using ResampleWindowType = Function::WelchWindowFunction<RESAMPLE_RADIUS>;
   using FixedBoundaryConditionType = ZeroFluxNeumannBoundaryCondition<FixedImageType>;
   using FixedResamplerInterpolatorType = WindowedSincInterpolateImageFunction<FixedImageType,
@@ -138,7 +138,7 @@ public:
     BlockMatching::MaximumPixelDisplacementCalculator<MetricImageType, DisplacementImageType>;
   using FinalInterpolatorType =
     BlockMatching::OptimizingInterpolationDisplacementCalculator<MetricImageType, DisplacementImageType>;
-  const static unsigned int OPTIMIZING_INTERPOLATOR_RADIUS = 4;
+  static const unsigned int OPTIMIZING_INTERPOLATOR_RADIUS = 4;
   using WindowType = Function::WelchWindowFunction<OPTIMIZING_INTERPOLATOR_RADIUS>;
   using ResampleBoundaryConditionType = ZeroFluxNeumannBoundaryCondition<MetricImageType>;
   using SubsampleInterpolatorType = WindowedSincInterpolateImageFunction<MetricImageType,

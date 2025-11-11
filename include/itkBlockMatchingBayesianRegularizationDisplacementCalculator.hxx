@@ -437,7 +437,7 @@ BayesianRegularizationDisplacementCalculator<TMetricImage, TDisplacementImage>::
         this->ImpartLikelihood(postImage, priorImage, direction, shift);
       }
     } // for every direction
-  }   // for every probability image
+  } // for every probability image
 }
 
 

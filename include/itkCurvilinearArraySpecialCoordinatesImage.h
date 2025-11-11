@@ -460,7 +460,7 @@ protected:
     m_FirstSampleDistance = 0;
   }
   ~CurvilinearArraySpecialCoordinatesImage() override = default;
-  
+
   virtual void
   PrintSelf(std::ostream & os, Indent indent) const override;
 

@@ -127,7 +127,7 @@ itkNrrdSequenceToVideoStreamTest(int argc, char * argv[])
     ++it;
   }
   ITK_TEST_EXPECT_EQUAL(scalarImage->GetPixel(itk::MakeIndex(0, 0, 0)),
-                       input->GetPixel(itk::MakeIndex(0, 0, 0)).GetElement(0));
+                        input->GetPixel(itk::MakeIndex(0, 0, 0)).GetElement(0));
 
   // Convert the 3D volume to a VideoStream of 2D frames for analysis.
   using VideoFilterType = typename itk::ImageToVideoFilter<ImageType>;
@@ -144,7 +144,8 @@ itkNrrdSequenceToVideoStreamTest(int argc, char * argv[])
     ITK_TEST_EXPECT_EQUAL(videoFilter->GetOutput()->GetFrame(0)->GetOrigin()[axis], input->GetOrigin()[axis]);
     for (size_t axis2 = 0; axis2 < VideoFilterType::OutputFrameType::ImageDimension; ++axis2)
     {
-      ITK_TEST_EXPECT_EQUAL(videoFilter->GetOutput()->GetFrame(0)->GetDirection()(axis,axis2), input->GetDirection()(axis,axis2));
+      ITK_TEST_EXPECT_EQUAL(videoFilter->GetOutput()->GetFrame(0)->GetDirection()(axis, axis2),
+                            input->GetDirection()(axis, axis2));
     }
   }
 
