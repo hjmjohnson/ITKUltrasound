@@ -4,14 +4,17 @@ on: [push,pull_request]
 
 jobs:
   cxx-build-workflow:
-    uses: InsightSoftwareConsortium/ITKRemoteModuleBuildTestPackageAction/.github/workflows/build-test-cxx.yml@5.4.2
+    uses: InsightSoftwareConsortium/ITKRemoteModuleBuildTestPackageAction/.github/workflows/build-test-cxx.yml@v5.4.6
     with:
       itk-module-deps: 'MeshToPolyData@v0.10.0:BSplineGradient@v0.3.0:HigherOrderAccurateGradient@v1.2.0:SplitComponents@v2.1.0:Strain@v0.4.0'
       warnings-to-ignore: "\"pointer is null\" \"in a call to non-static member function\""
       
   python-build-workflow:
-    uses: InsightSoftwareConsortium/ITKRemoteModuleBuildTestPackageAction/.github/workflows/build-test-package-python.yml@5.4.2
+    uses: InsightSoftwareConsortium/ITKRemoteModuleBuildTestPackageAction/.github/workflows/build-test-package-python.yml@v5.4.6
     with:
+      itk-wheel-tag: 'v5.4.5'
+      itk-python-package-tag: 'v5.4.5'
+      test-notebooks: false
       itk-module-deps: 'InsightSoftwareConsortium/ITKMeshToPolyData@v0.10.0:InsightSoftwareConsortium/ITKBSplineGradient@v0.3.0:InsightSoftwareConsortium/ITKHigherOrderAccurateGradient@v1.2.0:InsightSoftwareConsortium/ITKSplitComponents@v2.1.0:KitwareMedical/ITKStrain@v0.4.0'
     secrets:
       pypi_password: ${{ secrets.pypi_password }}

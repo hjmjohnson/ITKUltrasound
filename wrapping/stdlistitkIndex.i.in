@@ -1,14 +1,25 @@
 %{
-// Workaround for undefined SWIGPY_SLICE_ARG with swig 2.0.3 and 2.0.4
-// If removed, fails also with swig 3.0, so this has not been fixed ?
-// Needs to be investigated
+// SWIG preamble for std::list<itk::Index<N>> wrapping.
+//
+// SWIGPY_SLICE_ARG is a historical workaround for swig 2.0.3/2.0.4.
+// SWIG 4.1+ additionally requires SWIGPY_SLICEOBJECT: pycontainer.swg
+// declares the __getitem__, __setitem__, and __delitem__ typemaps on
+// std::list (and other containers) with a SWIGPY_SLICEOBJECT* slice
+// parameter instead of the older PySliceObject*.  This mirrors the
+// upstream ITK fix in Wrapping/Generators/Python/module_ext.i.in
+// (InsightSoftwareConsortium/ITK@d2361b8, 2023).  This file cannot
+// inherit that definition because it ships its own verbatim preamble
+// that SWIG emits directly into the generated .cpp.
+//
+// IMPORTANT: do not write the SWIG verbatim-block delimiters as
+// adjacent percent-brace tokens inside any comment in this preamble;
+// SWIG's lexer is not comment-aware and a stray closing delimiter
+// inside a comment will terminate the block prematurely and produce
+// a bogus "Syntax error - possibly a missing semicolon" diagnostic.
 #include <iostream>
 
-#if PY_VERSION_HEX >= 0x03020000
-# define SWIGPY_SLICE_ARG(obj) ((PyObject*) (obj))
-#else
-# define SWIGPY_SLICE_ARG(obj) ((PySliceObject*) (obj))
-#endif
+#define SWIGPY_SLICE_ARG(obj) ((PyObject*) (obj))
+#define SWIGPY_SLICEOBJECT PyObject
 %}
 
 %include <std_list.i>
