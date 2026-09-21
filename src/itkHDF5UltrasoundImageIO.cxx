@@ -394,7 +394,7 @@ HDF5UltrasoundImageIO ::ReadImageInformation()
     EncapsulateMetaData<std::string>(metaDataDict, "SliceType", "Image");
 
     using SliceSpacingType = Array<double>;
-    SliceSpacingType sliceSpacing(2);
+    SliceSpacingType sliceSpacing(itk::SizeValueType{ 2 });
     sliceSpacing[0] =
       (axialPixelLocations[axialPixelLocations.size() - 1] - axialPixelLocations[0]) / (axialPixelLocations.size() - 1);
     sliceSpacing[1] = (lateralPixelLocations[lateralPixelLocations.size() - 1] - lateralPixelLocations[0]) /
@@ -402,7 +402,7 @@ HDF5UltrasoundImageIO ::ReadImageInformation()
     EncapsulateMetaData<SliceSpacingType>(metaDataDict, "SliceSpacing", sliceSpacing);
 
     using SliceOriginType = Array<double>;
-    SliceOriginType sliceOrigin(2);
+    SliceOriginType sliceOrigin(itk::SizeValueType{ 2 });
     sliceOrigin[0] = axialPixelLocations[0];
     sliceOrigin[1] = lateralPixelLocations[1];
     EncapsulateMetaData<SliceOriginType>(metaDataDict, "SliceOrigin", sliceOrigin);
